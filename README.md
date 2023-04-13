@@ -1,2 +1,5 @@
 # java8
-Novidades Java8
+Novidades do java 8
+- Metodos
+- Refatoração de codigo
+- Implementação
