@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class OrdenaStrings {
 
@@ -44,16 +45,27 @@ public class OrdenaStrings {
         }
 
         System.out.println("Palavras ordenadas.");
-        Collections.sort(palavras);
+        palavras.sort(comparadorString);
         for (String nome: palavras) {
             System.out.println(nome);
         }
 
         System.out.println("Números ordenados.");
         numeros.sort(comparadorNumero);
-        for (Integer numero: numeros) {
-            System.out.println(numero);
-        }
+//        for (Integer numero: numeros) {
+//            System.out.println(numero);
+//        }
+
+        Consumer<String> consumidor = new ImprimeNaLinha();
+        palavras.forEach(consumidor);
+    }
+}
+
+class ImprimeNaLinha implements Consumer<String>{
+
+    @Override
+    public void accept(String s) {
+        System.out.println(s);
     }
 }
 
